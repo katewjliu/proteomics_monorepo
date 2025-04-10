@@ -77,9 +77,8 @@ with open(csv_all_sorted_files, mode='w', newline='') as csv_file:
     for file_data in files_sorted:
         writer.writerow(file_data)
 
+'''
 smallest_files = files_sorted[:100]
-
-
 
 # output csv including file size of all files and checksum of 100 file downloaded
 csv_file = "100_smallest_files.csv"
@@ -136,4 +135,4 @@ for file in smallest_files:
             "download_url": download_url
         })
     
-    
+'''
