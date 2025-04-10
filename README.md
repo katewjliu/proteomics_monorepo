@@ -39,3 +39,45 @@ This code provides a web service using Flask framework that interacts with a SQL
    - /smallest_files, GET method
    - /largest_files, GET method
    - /files-in-range, GET method
+
+### download_files_with_progress_DB.py
+This is a Python application that downloads files from GraphQL API, records download progress in SQLite Database, and provides a simple web interface for monitoring that progress. 
+1. **SQLite Database Setup and Management**
+2. **API Interaction:**
+     - fetch study information
+     - fetch files for each study
+3. **File Download and Processing:**
+    - Checks the database to see if file has already been downloaded
+    - Extract download URL and call API to download
+    - Logs the file as in_progress and attempts to download
+    - Once successful (HTTP 200) it saves downloaded content into a file with unique identifier, and updates download record in database and verifies checksum and finally marks status as completed.
+    - If download fails it updates record as failed.
+  
+### 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
