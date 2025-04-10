@@ -10,3 +10,15 @@ This Python script interacts with a GraphQL API (specifically from the PDC Cance
 2. **Extracting Study IDs:** from study catalog, iterates over each study and its versions, extracts all study IDs from each version and compiles into a list.
 3. **Fetching File Information:** for each study ID in the list, the script sends GraphQL query to retrieve file-related details such as file ID, file name, file size, MD5 checksum and a signed URL.
 4. **Sorting and Saving Data:** collected file data is sorted by file size in ascending order, and written to a CSV file (all_files_sorted.csv) for downstream use. 
+
+### create_DB_sqlite3.py
+This Python script reads file metadata stored in a CSV file and imports that data into a SQLite database.
+1. **Create SQLite Database** called file_metadata_database.db
+2. **Create a table to store CSV data:** defined SQL schema:
+   - file_id (primary key)
+   - file_name
+   - file_size
+   - md5sum
+   - signedURL
+3. **Read and import CSV data:** opens all_files_sorted.csv and read row by row into SQL table (replace existing entries with new data if same primary key)
+4. **Save changes and close database connection**
