@@ -1,7 +1,9 @@
 # CPTAC data download project
 This Python-based application accesses CPTAC data available on Proteomic Data Commons (PDC) data repository to fetch project and study information as well as download URL via their GraphQL API (https://proteomic.datacommons.cancer.gov/pdc/api-documentation). It creates a SQLite database for this metadata information. Users of this API can query the DB to retrieve file names based on file size (e.g. smallest, largest, or in size range). Users can also start file downloading in parallel threads and monitor file downloading progress on HTML webpage. Overall this project code provides a way to download files from CPTAC programmatically via their API and store file metadata information in a database for future query. 
+
 ## System Diagram
 ![System Diagram](CPTAC_data_download/diagram.svg)
+
 ## Individual Script Descriptions
 
 ### fetch_study_files.py
@@ -59,8 +61,29 @@ This HTML displays a file download progress report in table format.
 #### Table headers: Unique ID, Study ID, PDC Study ID, File Name, File Size, Status, MD5 Checksum, Generated MD5
 Status column is dynamically rendered and color coded based on conditions: completed in green, in_progress in yellow, Failed in red. 
 
+# Spectrum Viewer Project
+This application lets users choose from a list of dropdown raw files and a list of scans for each file to view spectrum for that scan in HTML webpage. The program was written in C# with REST API endpoints. It uses ThermoFisher's raw file reader library to open mass spectrometry raw data, get scan information, and display spectrum data points in a 2D plot. 
+
+## Example Spectrum Viewer Output on HTML
 
 
+## Individual Script Descriptions
+### MyAPI.csproj
+
+### Program.cs
+This C# program uses ASP.NET Core to create a simple web service that serves both static web pages and API endpoints for interacting with RAW files (commonly used in mass spectrometry data analysis).
+
+**HTTP Endpoints**
+- root endpoint
+- file servering endpoint
+- API endpoint to list RAW files
+- API endpoint for Scan Range
+- API endpoint for Scan Details
+- API endpoint for Spectrum Data
+
+### RawFileReader.cs
+
+### index.html
 
 
 
